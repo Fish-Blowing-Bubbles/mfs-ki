@@ -14,94 +14,123 @@ const pdfFont = 'pdf/FRABK.TTF';
 // Formula to convert from Illustrator position to pdf-lib units:
 // (297 - illustrator_pos) * 2.83
 const pdfAnswerFormat = {
+
     "q0": {
-        "x": 97.4,
-        "y": 572.8,
+        "x": 58.9,
+        "y": 620,
         "page": 0,
-        "isLikard": true,
     },
+
+
     "q1": {
-        "isMulti": true,
         "x": 58.9,
-        "y": 438.8,
-        "maxWidth": 476,
+        "y": 409,
         "page": 0,
+        
     },
+
+
     "q2": {
-        "isMixed": true,
         "x": 58.9,
-        "y": 209.7,
-        "x2": 58.9,
-        "y2": 156,
-        "maxWidth": 476,
+        "y": 185,
         "page": 0,
     },
+
+
     "q3": {
         "x": 58.9,
-        "y": 672,
-        "maxWidth": 476,
+        "y": 688,
         "page": 1,
+       
     },
+
+
+
     "q4": {
-        "x": 111.2,
-        "y": 432.4,
+        "x": 58.9,
+        "y": 454,
         "page": 1,
-        "isLikard": true,
     },
+
+
     "q5": {
         "x": 58.9,
-        "y": 248,
-        "maxWidth": 476,
+        "y": 200,
+        "maxWidth": 480,
         "page": 1,
     },
+
+
     "q6": {
-        "x": 58.9,
-        "y": 672,
-        "maxWidth": 476,
+        "x": 90,
+        "y": 700,
         "page": 2,
+        "isLikard" : true,
     },
+
+
     "q7": {
-        "x": 97.4,
-        "y": 409.8,
+        "x": 90,
+        "y": 530,
         "page": 2,
-        "isLikard": true,
+        "isLikard" : true,
     },
+
+
     "q8": {
+        "x": 90,
+        "y": 380,
+        "page": 2,
+        "isLikard" : true,
+    },
+
+
+    "q9": {
+        "isMixed": true,
         "x": 58.9,
-        "y": 257,
-        "maxWidth": 476,
+        "y": 240,
+        "x2": 58.9,
+        "y2": 185,
+        "maxWidth": 480,
         "page": 2,
     },
-    "q9": {
-        "x": 58.9,
-        "y": 650,
-        "maxWidth": 476,
-        "page": 3,
-    },
+
+
     "q10": {
         "x": 58.9,
-        "y": 400,
-        "maxWidth": 476,
+        "y": 665,
+        "maxWidth": 480,
         "page": 3,
     },
+
     "q11": {
+     
         "x": 58.9,
-        "y": 175,
-        "maxWidth": 476,
+        "y": 429,
+       
+        "maxWidth": 480,
         "page": 3,
     },
+
+   
+
     "q12": {
         "x": 58.9,
-        "y": 651.8,
-        "maxWidth": 476,
-        "page": 4,
+        "y": 175,
+        "maxWidth": 480,
+        "page": 3,
     },
+   
+  
+  
     "q13": {
         "x": 58.9,
-        "y": 424.6,
-        "maxWidth": 476,
+        "y": 665,
+        "maxWidth": 480,
         "page": 4,
     },
+    
+  
 }
 
 const likardGapSize = 121.1;

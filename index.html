@@ -38,7 +38,7 @@
           <!--Start screen-->
           <div id="start" class="start-container">
             <div class="title">
-              <div class="franklin-regular title-text">Selbstcheck KI</div>
+              <div class="franklin-regular title-text">Check dein<br>KI-Wissen</br></div>
             </div>
 
             <div class="large-button" onclick="start()">
@@ -51,110 +51,125 @@
           </div>
 
 
+          <div id="introPopup" class="pop-up-intro no-blur hidden">
+            <div class="pop-up-container">
+              <div class="franklin-bold small-heading">Willkommen!</div>
+              <div class="franklin-regular pop-up-text">
+              <p>
+                  Was sind Ihre Erfahrungen bzw. Einschätzungen beim Thema Künstliche Intelligenz? Nehmen Sie sich die Zeit, um die folgenden 14 Fragen in Ruhe zu beantworten. 
+                  Es gibt drei verschiedene Frage- bzw. Antworttypen:
+                  <ul>
+                    <br/>
+                      <li>Multiple-Choice-Fragen, bei denen Sie aus den vorgegebenen Antwortmöglichkeiten eine oder mehrere richtige Antworten auswählen sollen.</li>
+                      <br/>
+                      <li>Einschätzungsfragen, bei denen Sie Ihre Antwort auf einer Vierer-Skala vermerken sollen.</li>
+                      <br/>
+                      <li>Offene Fragen, bei denen Sie Ihre Antworten als Texteingabe selbst formulieren (max. 500 Zeichen).</li>
+                  </ul>
+              </p>
+            </div>
+              <div class="text-button-container">
+                  <div class="text-button" onclick="closePopup()">
+                      <div class="franklin-bold text-button-text">Starten</div>
+                  </div>
+              </div>
+          </div>
+          </div>
+
+
 
           <!-- ################### QUESTIONS ################### -->
 
 
-          <!--Question 00 / Likard-->
+          <!--Question 00 /pop-up explanation-->
           <div id="q0" class="question-container hidden">
             <div class="franklin-bold question-text question-index">
               Frage 1:
             </div>
             <div class="question-element question-heading">
               <div class="franklin-bold question-text center-text">
-                Wie hilfreich finde ich KI-basierte bzw. Algorithmus gesteuerte Anwendungen in meinem Alltag?
-                (z. B. Sprachassistenz, personalisierte Playlists und Shopping-Vorschläge, Fahr- und Parkassistenz)
+                Wo kann KI überall drinstecken?
               </div>
             </div>
             <div class="question-answers-container">
-              <div class="likard-scale-container">
-                <div class="likard-scale">
-                  <div id="q0_a0" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
-                    <div class="likard-bubble"></div>
-                    <div class="franklin-regular question-text likard-text">sehr hilfreich</div>
-                  </div>
-                  <div id="q0_a1" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
-                    <div class="likard-bubble"></div>
-                    <div class="franklin-regular question-text likard-text">hilfreich</div>
-                  </div>
-                  <div id="q0_a2" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
-                    <div class="likard-bubble"></div>
-                    <div class="franklin-regular question-text likard-text">wenig hilfreich</div>
-                  </div>
-                  <div id="q0_a3" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
-                    <div class="likard-bubble"></div>
-                    <div class="franklin-regular question-text likard-text">nicht hilfreich</div>
-                  </div>
-                </div>
+              <div id="q0_a0" class="question-element question-answer" onclick="selectAnswer(this, 'multi')">
+                <div class="franklin-regular question-text">Suchmaschinen</div>
+              </div>
+              <div id="q0_a1" class="question-element question-answer" onclick="selectAnswer(this, 'multi')">
+                <div class="franklin-regular question-text">Lebensmittelproduktion</div>
+              </div>
+              <div id="q0_a2" class="question-element question-answer" onclick="selectAnswer(this, 'multi')">
+                <div class="franklin-regular question-text">Sprachassistenten</div>
+              </div>
+              <div id="q0_a3" class="question-element question-answer" onclick="selectAnswer(this, 'multi')">
+                <div class="franklin-regular question-text">Fahrassistenten</div>
               </div>
             </div>
           </div>
 
-          <!--Question 01 /pop-up explanation-->
+
+          <!--Question 01 /multiple choice / pop-up explanation-->
           <div id="q1" class="question-container hidden">
             <div class="franklin-bold question-text question-index">
               Frage 2:
             </div>
             <div class="question-element question-heading">
               <div class="franklin-bold question-text center-text">
-                Wo kann KI überall drin stecken?
+                In welchem Jahrzehnt wurde der erste Chat-Bot entwickelt?
               </div>
             </div>
             <div class="question-answers-container">
-              <div id="q1_a0" class="question-element question-answer" onclick="selectAnswer(this, 'multi')">
-                <div class="franklin-regular question-text">Suchmaschinen</div>
+              <div id="q1_a0" class="question-element question-answer" onclick="selectAnswer(this)">
+                <div class="franklin-regular question-text">1960er Jahre</div>
               </div>
-              <div id="q1_a1" class="question-element question-answer" onclick="selectAnswer(this, 'multi')">
-                <div class="franklin-regular question-text">Lebensmittelproduktion</div>
+              <div id="q1_a1" class="question-element question-answer" onclick="selectAnswer(this)">
+                <div class="franklin-regular question-text">1980er Jahre</div>
               </div>
-              <div id="q1_a2" class="question-element question-answer" onclick="selectAnswer(this, 'multi')">
-                <div class="franklin-regular question-text">Sprachassistenten</div>
+              <div id="q1_a2" class="question-element question-answer" onclick="selectAnswer(this)">
+                <div class="franklin-regular question-text">2000er Jahre</div>
               </div>
-              <div id="q1_a3" class="question-element question-answer" onclick="selectAnswer(this, 'multi')">
-                <div class="franklin-regular question-text">Fahrassistenten</div>
+              <div id="q1_a3" class="question-element question-answer" onclick="selectAnswer(this)">
+                <div class="franklin-regular question-text">2020er Jahre</div>
               </div>
             </div>
           </div>
 
-          <!--Question 02 / Yes/Now and fill text box -->
+
+          <!--Question 2 /pop-up explanation-->
           <div id="q2" class="question-container hidden">
             <div class="franklin-bold question-text question-index">
               Frage 3:
             </div>
             <div class="question-element question-heading">
               <div class="franklin-bold question-text center-text">
-                Bin ich schonmal in Kontakt mit Deepfake gekommen?
+                Was misst der Turing-Test?
               </div>
             </div>
             <div class="question-answers-container">
-              <div id="q2_a0" class="question-element question-answer" onclick="selectAnswer(this, 'mixed')">
-                <div class="franklin-regular question-text">Ja</div>
+              <div id="q2_a0" class="question-element question-answer" onclick="selectAnswer(this)">
+                <div class="franklin-regular question-text">Intelligenz</div>
               </div>
-              <div id="q2_a1" class="question-element question-answer" onclick="selectAnswer(this, 'mixed')">
-                <div class="franklin-regular question-text">Nein</div>
-              </div> 
-              <div class="text-answer-container">
-                <textarea 
-                  name="q2-text-field" 
-                  id="q2_a" 
-                  class="franklin-regular question-text text-answer question-answer" 
-                  placeholder="Wo und welche?" 
-                  maxlength="500" 
-                  oninput="updateTextBox(this, 'mixed')"
-              ></textarea>
+              <div id="q2_a1" class="question-element question-answer" onclick="selectAnswer(this)">
+                <div class="franklin-regular question-text">Sozialkompetenz</div>
+              </div>
+              <div id="q2_a2" class="question-element question-answer" onclick="selectAnswer(this)">
+                <div class="franklin-regular question-text">Leistung</div>
+              </div>
+              <div id="q2_a3" class="question-element question-answer" onclick="selectAnswer(this)">
+                <div class="franklin-regular question-text">ADHS</div>
               </div>
             </div>
           </div>
-          <!-- Hier gibt es "Ja" und "Nein" als Antwort und eine Texteingabe mit 500 - 1000 Zeichen-->
 
-          <!--Question 03 /pop-up explanation-->
+
+          <!--Question 03 / pop-up explanation-->
           <div id="q3" class="question-container hidden">
             <div class="franklin-bold question-text question-index">
               Frage 4:
             </div>
             <div class="question-element question-heading">
               <div class="franklin-bold question-text center-text">
-                Kann KI kreativ sein?
+                Könnten KI-Chat-Bots das bayerische Abitur bestehen?
               </div>
             </div>
             <div class="question-answers-container">
@@ -167,49 +182,37 @@
             </div>
           </div>
 
-          <!--Question 04 /orginal Question 6 / Likard-->
+
+          <!--Question 04 /pop-up explanation-->
           <div id="q4" class="question-container hidden">
             <div class="franklin-bold question-text question-index">
               Frage 5:
             </div>
             <div class="question-element question-heading">
               <div class="franklin-bold question-text center-text">
-                Wie häufig nutze ich KI in meinem Alltag?
+                Kann KI kreativ sein?
               </div>
             </div>
             <div class="question-answers-container">
-              <div class="likard-scale-container">
-                <div class="likard-scale">
-                  <div id="q4_a0" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
-                    <div class="likard-bubble"></div>
-                    <div class="franklin-regular question-text likard-text">häufig</div>
-                  </div>
-                  <div id="q4_a1" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
-                    <div class="likard-bubble"></div>
-                    <div class="franklin-regular question-text likard-text">manchmal</div>
-                  </div>
-                  <div id="q4_a2" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
-                    <div class="likard-bubble"></div>
-                    <div class="franklin-regular question-text likard-text">selten</div>
-                  </div>
-                  <div id="q4_a3" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
-                    <div class="likard-bubble"></div>
-                    <div class="franklin-regular question-text likard-text">nie</div>
-                  </div>
-                </div>
+              <div id="q4_a0" class="question-element question-answer" onclick="selectAnswer(this)">
+                <div class="franklin-regular question-text">Ja</div>
+              </div>
+              <div id="q4_a1" class="question-element question-answer" onclick="selectAnswer(this)">
+                <div class="franklin-regular question-text">Nein</div>
               </div>
             </div>
           </div>
 
-          <!--Question 05 /orginal Question 14 / Textbox-->
+
+          <!--Question 05 / Answer box-->
           <div id="q5" class="question-container hidden">
             <div class="franklin-bold question-text question-index">
               Frage 6:
             </div>
             <div class="question-element question-heading">
               <div class="franklin-bold question-text center-text">
-                Wie und wo könnte der Einsatz von KI in Zukunft meine Arbeit als 
-                Erzieherin / Erzieher erleichtern?
+                Wo begegnet mir KI in meinem persönlichen Alltag? / Welche 
+                KI-Technologien nutze ich aktiv und bewusst?
               </div>
             </div>
             <div class="text-answer-container">
@@ -224,38 +227,82 @@
             </div>
           </div>
 
-          <!--Question 06 /orginal Question 1 /multiple choice / pop-up explanation-->
+
+          <!--Question 06 /orginal Question 6 / Likard-->
           <div id="q6" class="question-container hidden">
             <div class="franklin-bold question-text question-index">
               Frage 7:
             </div>
             <div class="question-element question-heading">
               <div class="franklin-bold question-text center-text">
-                In welchem Jahrzehnt wurde der erste Chat-Bot entwickelt?
+                Wie häufig nutze ich KI in meinem Alltag?
               </div>
             </div>
             <div class="question-answers-container">
-              <div id="q6_a0" class="question-element question-answer" onclick="selectAnswer(this)">
-                <div class="franklin-regular question-text">1960er Jahre</div>
-              </div>
-              <div id="q6_a1" class="question-element question-answer" onclick="selectAnswer(this)">
-                <div class="franklin-regular question-text">1980er Jahre</div>
-              </div>
-              <div id="q6_a2" class="question-element question-answer" onclick="selectAnswer(this)">
-                <div class="franklin-regular question-text">2000er Jahre</div>
-              </div>
-              <div id="q6_a3" class="question-element question-answer" onclick="selectAnswer(this)">
-                <div class="franklin-regular question-text">2020er Jahre</div>
+              <div class="likard-scale-container">
+                <div class="likard-scale">
+                  <div id="q6_a0" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
+                    <div class="likard-bubble"></div>
+                    <div class="franklin-regular question-text likard-text">nie</div>
+                  </div>
+                  <div id="q6_a1" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
+                    <div class="likard-bubble"></div>
+                    <div class="franklin-regular question-text likard-text">selten</div>
+                  </div>
+                  <div id="q6_a2" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
+                    <div class="likard-bubble"></div>
+                    <div class="franklin-regular question-text likard-text">manchmal</div>
+                  </div>
+                  <div id="q6_a3" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
+                    <div class="likard-bubble"></div>
+                    <div class="franklin-regular question-text likard-text">häufig</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-        
 
-          <!--Question 07 /orginal Question 8 / Likard-->
+          <!--Question 07 / Likard-->
           <div id="q7" class="question-container hidden">
             <div class="franklin-bold question-text question-index">
               Frage 8:
+            </div>
+            <div class="question-element question-heading">
+              <div class="franklin-bold question-text center-text">
+                Wie hilfreich finde ich KI-basierte bzw. algorithmusgesteuerte Anwendungen in meinem Alltag?
+                (z. B. Sprachassistenz, personalisierte Playlists und Shopping-Vorschläge, Fahr- und Parkassistenz)
+              </div>
+            </div>
+            <div class="question-answers-container">
+              <div class="likard-scale-container">
+                <div class="likard-scale">
+                  <div id="q7_a0" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
+                    <div class="likard-bubble"></div>
+                    <div class="franklin-regular question-text likard-text">nicht hilfreich</div>
+                  </div>
+                  <div id="q7_a1" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
+                    <div class="likard-bubble"></div>
+                    <div class="franklin-regular question-text likard-text">wenig hilfreich</div>
+                  </div>
+                  <div id="q7_a2" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
+                    <div class="likard-bubble"></div>
+                    <div class="franklin-regular question-text likard-text"> hilfreich</div>
+                  </div>
+                  <div id="q7_a3" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
+                    <div class="likard-bubble"></div>
+                    <div class="franklin-regular question-text likard-text">sehr hilfreich</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!--Question 08 /orginal Question 8 / Likard-->
+          <div id="q8" class="question-container hidden">
+            <div class="franklin-bold question-text question-index">
+              Frage 9:
             </div>
             <div class="question-element question-heading">
               <div class="franklin-bold question-text center-text">
@@ -266,69 +313,59 @@
             <div class="question-answers-container">
               <div class="likard-scale-container">
                 <div class="likard-scale">
-                  <div id="q7_a0" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
+                  <div id="q8_a0" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
                     <div class="likard-bubble"></div>
-                    <div class="franklin-regular question-text likard-text">sehr leicht</div>
+                    <div class="franklin-regular question-text likard-text">schwer</div>
                   </div>
-                  <div id="q7_a1" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
-                    <div class="likard-bubble"></div>
-                    <div class="franklin-regular question-text likard-text">leicht</div>
-                  </div>
-                  <div id="q7_a2" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
+                  <div id="q8_a1" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
                     <div class="likard-bubble"></div>
                     <div class="franklin-regular question-text likard-text">geht so</div>
                   </div>
-                  <div id="q7_a3" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
+                  <div id="q8_a2" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
                     <div class="likard-bubble"></div>
-                    <div class="franklin-regular question-text likard-text">schwer</div>
+                    <div class="franklin-regular question-text likard-text">leicht</div>
+                  </div>
+                  <div id="q8_a3" class="likard-bubble-container" onclick="selectAnswer(this, 'likard')">
+                    <div class="likard-bubble"></div>
+                    <div class="franklin-regular question-text likard-text">sehr leicht</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!--Question 08 /orginal Question 3 /pop-up explanation-->
-          <div id="q8" class="question-container hidden">
-            <div class="franklin-bold question-text question-index">
-              Frage 9:
-            </div>
-            <div class="question-element question-heading">
-              <div class="franklin-bold question-text center-text">
-                Könnten KI-Chat-Bots das bayerische Abitur bestehen?
-              </div>
-            </div>
-            <div class="question-answers-container">
-              <div id="q8_a0" class="question-element question-answer" onclick="selectAnswer(this)">
-                <div class="franklin-regular question-text">Ja</div>
-              </div>
-              <div id="q8_a1" class="question-element question-answer" onclick="selectAnswer(this)">
-                <div class="franklin-regular question-text">Nein</div>
-              </div>
-            </div>
-          </div>
 
-          <!--Question 09 / Answer box-->
+          <!--Question 09 / Yes/Now and fill text box -->
           <div id="q9" class="question-container hidden">
             <div class="franklin-bold question-text question-index">
               Frage 10:
             </div>
             <div class="question-element question-heading">
               <div class="franklin-bold question-text center-text">
-                Wo begegnet mir KI in meinem persönlichen Alltag? / Welche 
-                KI-Technologien nutze ich aktiv und bewusst?
+                Bin ich schonmal in Kontakt mit Deepfake gekommen?
               </div>
             </div>
-            <div class="text-answer-container">
-              <textarea 
-                name="q9-text-field" 
-                id="q9_a" 
-                class="franklin-regular question-text text-answer question-answer" 
-                placeholder="Schreibe deine Antwort..." 
-                maxlength="500" 
-                oninput="updateTextBox(this)"
+            <div class="question-answers-container">
+              <div id="q9_a0" class="question-element question-answer" onclick="selectAnswer(this, 'mixed')">
+                <div class="franklin-regular question-text">Ja</div>
+              </div>
+              <div id="q9_a1" class="question-element question-answer" onclick="selectAnswer(this, 'mixed')">
+                <div class="franklin-regular question-text">Nein</div>
+              </div> 
+              <div class="text-answer-container">
+                <textarea 
+                  name="q9-text-field" 
+                  id="q9_a" 
+                  class="franklin-regular question-text text-answer question-answer" 
+                  placeholder="Wo und welche?" 
+                  maxlength="500" 
+                  oninput="updateTextBox(this, 'mixed')"
               ></textarea>
+              </div>
             </div>
           </div>
+          <!-- Hier gibt es "Ja" und "Nein" als Antwort und eine Texteingabe mit 500 - 1000 Zeichen-->
+
 
           <!--Question 10 / Answer box-->
           <div id="q10" class="question-container hidden">
@@ -353,41 +390,40 @@
             </div>
           </div>
 
-          <!--Question 11 /orginal Question 4 /pop-up explanation-->
+
+          <!--Question 11 / Answer box-->
           <div id="q11" class="question-container hidden">
             <div class="franklin-bold question-text question-index">
               Frage 12:
             </div>
             <div class="question-element question-heading">
               <div class="franklin-bold question-text center-text">
-                Was misst der Turing-Test?
+                Was wünsche / erhoffe ich mir persönlich von zukünftigen 
+                KI-Technologien?
               </div>
             </div>
-            <div class="question-answers-container">
-              <div id="q11_a0" class="question-element question-answer" onclick="selectAnswer(this)">
-                <div class="franklin-regular question-text">Intelligenz</div>
-              </div>
-              <div id="q11_a1" class="question-element question-answer" onclick="selectAnswer(this)">
-                <div class="franklin-regular question-text">Sozialkompetenz</div>
-              </div>
-              <div id="q11_a2" class="question-element question-answer" onclick="selectAnswer(this)">
-                <div class="franklin-regular question-text">Leistung</div>
-              </div>
-              <div id="q11_a3" class="question-element question-answer" onclick="selectAnswer(this)">
-                <div class="franklin-regular question-text">ADHS</div>
-              </div>
+            <div class="text-answer-container">
+              <textarea 
+                name="q11-text-field" 
+                id="q11_a" 
+                class="franklin-regular question-text text-answer question-answer" 
+                placeholder="Schreibe deine Antwort..." 
+                maxlength="500" 
+                oninput="updateTextBox(this)"
+              ></textarea>
             </div>
           </div>
 
-          <!--Question 12 / orginal Question 15/Answer box-->
+
+          <!--Question 12 / Textbox-->
           <div id="q12" class="question-container hidden">
             <div class="franklin-bold question-text question-index">
               Frage 13:
             </div>
             <div class="question-element question-heading">
               <div class="franklin-bold question-text center-text">
-                Wie und wo könnte der Einsatz von KI im pädagogischen 
-                Alltag problematisch sein?
+                Wie und wo könnte der Einsatz von KI in Zukunft meine Arbeit als 
+                Erzieherin / Erzieher erleichtern?
               </div>
             </div>
             <div class="text-answer-container">
@@ -402,6 +438,7 @@
             </div>
           </div>
 
+
           <!--Question 13 / Answer box-->
           <div id="q13" class="question-container hidden">
             <div class="franklin-bold question-text question-index">
@@ -409,8 +446,8 @@
             </div>
             <div class="question-element question-heading">
               <div class="franklin-bold question-text center-text">
-                Was wünsche / erhoffe ich mir persönlich von zukünftigen 
-                KI-Technologien?
+                Wie und wo könnte der Einsatz von KI im pädagogischen 
+                Alltag problematisch sein?
               </div>
             </div>
             <div class="text-answer-container">
@@ -427,13 +464,15 @@
 
 
 
+
+
           <!-- ################### RESULT SCREEN ################### -->
 
 
           <!--Result screen-->
           <div id="result" class="result-container hidden">
             <div class="start-container">
-              <div class="franklin-bold title-text" style="font-size: 50pt;">Selbstcheck KI  erfolgreich Abgeschlossen!</div>
+              <div class="franklin-bold title-text" style="font-size: 50pt;">Test erfolgreich Abgeschlossen!</div>
               <div class="result-text-box download-pdf-hitbox" onclick="exportPDF(questionAnswers)">
                 <div>
                   <div class="franklin-regular question-text pdf-download-text">PDF mit Ergebnissen herunterladen:</div>
@@ -459,6 +498,7 @@
           <!--Impressum screen-->
           <div id="impressum" class="impressum-container hidden">
             <div class="impressum-header">
+            
               <div class="result-type-heading">
                 <div class="franklin-bold">Impressum</div>
               </div>
@@ -508,16 +548,16 @@
             <div class="sources-entry">
               <div class="franklin-bold question-text" style="margin-right: 15px;">[1]</div>
               <div class="franklin-regular question-text">
-                Deutsches Schulportal, "Abitur 2024 - Prüfungen, News und Notenschnitte", Zuletzt bearbeitet am 23.07.2024, 
-                <a href="https://deutsches-schulportal.de/bildungswesen/abitur-pruefungen-news-notenschnitte/" target="_blank">https://deutsches-schulportal.de/bildungswesen/abitur-pruefungen-news-notenschnitte/</a>
+                Süddeutsche Zeitung, "Wenn Sie nicht in den nächsten Wochen in Rente gehen, müssen Sie das lernen", Veröffentlicht am 22.11.2023, 
+                <a href="https://www.sueddeutsche.de/bayern/lehrermedientag-ki-unterricht-schulen-chat-gpt-1.6307652" target="_blank">https://www.sueddeutsche.de/bayern/lehrermedientag-ki-unterricht-schulen-chat-gpt-1.6307652</a>
               </div>
             </div>
 
             <div class="sources-entry">
               <div class="franklin-bold question-text" style="margin-right: 15px;">[2]</div>
               <div class="franklin-regular question-text">
-                News4Teachers, "Forscher registrieren rasante Entwicklung: ChatGPT besteht das bayerische Abitur - mit einer Zwei", Veröffentlicht am 25.11.2023, 
-                <a href="https://www.news4teachers.de/2023/11/forscher-registrieren-rasante-entwicklung-chatgpt-besteht-das-bayerische-abitur-mit-einer-zwei/" target="_blank">https://www.news4teachers.de/2023/11/<wbr>forscher-registrieren-rasante-entwicklung-chatgpt-besteht-das-bayerische-abitur-mit-einer-zwei/</a>
+                Deutschlandfunk, "ChatGPT hätte Abi bestanden", Veröffentlicht am 28.05.2023, 
+                <a href="https://www.deutschlandfunk.de/chatgpt-haette-abi-bestanden-102.html" target="_blank">https://www.deutschlandfunk.de/chatgpt-haette-abi-bestanden-102.html</a>
               </div>
             </div>
 
@@ -557,7 +597,7 @@
               <div class="franklin-bold question-text" style="margin-right: 15px;">[7]</div>
               <div class="franklin-regular question-text">
                 Soxes (Zentrum für vertrauenswürdige Künstliche Intelligenz), Soxes, Veröffentlicht am 26.04.2022, 
-                <a href="https://www.zvki.de/en/ki-navigator/unsere-inhalte/glossar" target="_blank">https://soxes.ch/kuenstliche-intelligenz-beispiele/</a>
+                <a href="https://soxes.ch/kuenstliche-intelligenz-beispiele/" target="_blank">https://soxes.ch/kuenstliche-intelligenz-beispiele/</a>
               </div>
             </div>
 
@@ -565,7 +605,7 @@
               <div class="franklin-bold question-text" style="margin-right: 15px;">[8]</div>
               <div class="franklin-regular question-text">
                 ZVKI (Zentrum für vertrauenswürdige Künstliche Intelligenz), "KI-Navigator - FAQs", Veröffentlicht am 26.04.2022, 
-                <a href="https://www.zvki.de/en/ki-navigator/unsere-inhalte/glossar" target="_blank">https://www.zvki.de/ki-navigator/unsere-inhalte/faqs</a>
+                <a href="https://www.zvki.de/ki-navigator/unsere-inhalte/faqs" target="_blank">https://www.zvki.de/ki-navigator/unsere-inhalte/faqs</a>
               </div>
             </div>
 
@@ -574,7 +614,7 @@
               <div class="franklin-bold question-text" style="margin-right: 15px;">[9]</div>
               <div class="franklin-regular question-text">
                 Wikipedia, "ELIZA", Zuletzt bearbeitet am 06.02.2024, 
-                <a href="https://www.zvki.de/en/ki-navigator/unsere-inhalte/glossar" target="_blank">https://de.wikipedia.org/wiki/ELIZA</a>
+                <a href="https://de.wikipedia.org/wiki/ELIZA" target="_blank">https://de.wikipedia.org/wiki/ELIZA</a>
               </div>
             </div>
 
@@ -582,7 +622,7 @@
               <div class="franklin-bold question-text" style="margin-right: 15px;">[10]</div>
               <div class="franklin-regular question-text">
                 News 4 Teachers, "Forscher registrieren rasante Entwicklung: ChatGPT besteht das bayerische Abitur - mit einer Zwei", Veröffentlicht am 25.11.2023, 
-                <a href="https://www.zvki.de/en/ki-navigator/unsere-inhalte/glossar" target="_blank">https://www.news4teachers.de/2023/11/forscher-registrieren-rasante-entwicklung-chatgpt-besteht-das-bayerische-abitur-mit-einer-zwei/</a>
+                <a href="https://www.news4teachers.de/2023/11/forscher-registrieren-rasante-entwicklung-chatgpt-besteht-das-bayerische-abitur-mit-einer-zwei/" target="_blank">https://www.news4teachers.de/2023/11/forscher-registrieren-rasante-entwicklung-chatgpt-besteht-das-bayerische-abitur-mit-einer-zwei/</a>
               </div>
             </div>
 
@@ -590,7 +630,7 @@
               <div class="franklin-bold question-text" style="margin-right: 15px;">[11]</div>
               <div class="franklin-regular question-text">
                 Deutsches Schulportal, "Abitur 2024 – Prüfungen, News und Notenschnitte", Zuletzt bearbeitet am 23.06.2024, 
-                <a href="https://www.zvki.de/en/ki-navigator/unsere-inhalte/glossar" target="_blank">https://deutsches-schulportal.de/bildungswesen/abitur-pruefungen-news-notenschnitte/</a>
+                <a href="https://deutsches-schulportal.de/bildungswesen/abitur-pruefungen-news-notenschnitte/" target="_blank">https://deutsches-schulportal.de/bildungswesen/abitur-pruefungen-news-notenschnitte/</a>
               </div>
             </div>
 
@@ -598,7 +638,7 @@
               <div class="franklin-bold question-text" style="margin-right: 15px;">[12]</div>
               <div class="franklin-regular question-text">
                 Deutschlandfunk, "ChatGPT hätte Abi bestanden", Zuletzt bearbeitet am 28.05.2023, 
-                <a href="https://www.zvki.de/en/ki-navigator/unsere-inhalte/glossar" target="_blank">https://www.deutschlandfunk.de/chatgpt-haette-abi-bestanden-102.html</a>
+                <a href="https://www.deutschlandfunk.de/chatgpt-haette-abi-bestanden-102.html" target="_blank">https://www.deutschlandfunk.de/chatgpt-haette-abi-bestanden-102.html</a>
               </div>
             </div>
 
@@ -606,7 +646,7 @@
               <div class="franklin-bold question-text" style="margin-right: 15px;">[13]</div>
               <div class="franklin-regular question-text">
                 Süddeutsche Zeitung, "Wenn Sie nicht in den nächsten Wochen in Rente gehen, müssen Sie das lernen", Veröffentlicht am 22.11.2023, 
-                <a href="https://www.zvki.de/en/ki-navigator/unsere-inhalte/glossar" target="_blank">https://www.sueddeutsche.de/bayern/lehrermedientag-ki-unterricht-schulen-chat-gpt-1.6307652</a>
+                <a href="https://www.sueddeutsche.de/bayern/lehrermedientag-ki-unterricht-schulen-chat-gpt-1.6307652" target="_blank">https://www.sueddeutsche.de/bayern/lehrermedientag-ki-unterricht-schulen-chat-gpt-1.6307652</a>
               </div>
             </div>
 
@@ -646,7 +686,7 @@
             <div class="footer-container">
               <div id="footer_1" class="footer-logo">
                 <a href="https://www.medienfuehrerschein.bayern/home" target="_blank">
-                  <img class="company-image" src="images/Medienführerschein_Logo.png" alt="">
+                  <img class="company-image" src="images/Medienfuehrerschein_Logo.png" alt="">
                 </a>
               </div>
               <div id="footer_2" class="footer-button" onclick="impressum()">
@@ -680,7 +720,7 @@
 
     <div id="pop_ups">
 
-      <div id="q1_pop_up" class="pop-up no-blur hidden">
+      <div id="q0_pop_up" class="pop-up no-blur hidden">
         <div class="pop-up-container">
           <img class="info-icon" src="images/Infoicon.svg" alt="info icon">
 
@@ -698,10 +738,11 @@
               <div class="franklin-bold text-button-text">Weiter</div>
             </div>
           </div>
+          <img class="cross-icon-popup" src="images/exit_cross.svg" alt="exit_cross" onclick="exitImpressum()">
         </div>
       </div>
       
-      <div id="q3_pop_up" class="pop-up no-blur hidden">
+      <div id="q4_pop_up" class="pop-up no-blur hidden">
         <div class="pop-up-container">
           <img class="info-icon" src="images/Infoicon.svg" alt="info icon">
 
@@ -717,10 +758,11 @@
               <div class="franklin-regular text-button-text">Weiter</div>
             </div>
           </div>
+          <img class="cross-icon-popup" src="images/exit_cross.svg" alt="exit_cross" onclick="exitImpressum()">
         </div>
       </div>
 
-      <div id="q6_pop_up" class="pop-up no-blur hidden">
+      <div id="q1_pop_up" class="pop-up no-blur hidden">
         <div class="pop-up-container">
           <img class="info-icon" src="images/Infoicon.svg" alt="info icon">
 
@@ -738,10 +780,11 @@
               <div class="franklin-regular text-button-text">Weiter</div>
             </div>
           </div>
+          <img class="cross-icon-popup" src="images/exit_cross.svg" alt="exit_cross" onclick="exitImpressum()">
         </div>
       </div>
 
-      <div id="q8_pop_up" class="pop-up no-blur hidden">
+      <div id="q3_pop_up" class="pop-up no-blur hidden">
         <div class="pop-up-container">
           <img class="info-icon" src="images/Infoicon.svg" alt="info icon">
 
@@ -758,10 +801,11 @@
               <div class="franklin-regular text-button-text">Weiter</div>
             </div>
           </div>
+          <img class="cross-icon-popup" src="images/exit_cross.svg" alt="exit_cross" onclick="exitImpressum()">
         </div>
       </div>
 
-      <div id="q11_pop_up" class="pop-up no-blur hidden">
+      <div id="q2_pop_up" class="pop-up no-blur hidden">
         <div class="pop-up-container">
           <img class="info-icon" src="images/Infoicon.svg" alt="info icon">
 
@@ -780,6 +824,7 @@
               <div class="franklin-regular text-button-text">Weiter</div>
             </div>
           </div>
+          <img class="cross-icon-popup" src="images/exit_cross.svg" alt="exit_cross" onclick="exitImpressum()">
         </div>
       </div>
 

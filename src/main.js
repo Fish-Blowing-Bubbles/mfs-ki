@@ -63,6 +63,7 @@ function loadSession() {
     if (savedQ != 'undefined' && savedQ != undefined) {
         loadScreen(savedQ);
         console.log("Session restored.");
+        
     }
 }
 
@@ -248,10 +249,22 @@ function loadScreen(screenID, storeScreen = true) {
 /**
  * Starts the questionnaire
  */
+
 function start() {
+    const introPopup = document.getElementById("introPopup");
+    introPopup.classList.remove("hidden");
+   
+
+}
+
+function closePopup() {
+    const introPopup = document.getElementById("introPopup");
+    introPopup.classList.add("hidden");
     saveAnswers();
     loadScreen("q0");
 }
+
+
 
 /**
  * Load next question
@@ -301,7 +314,19 @@ function previousQuestion() {
     if (document.getElementById(prevQuestionID)) {
         saveAnswers();
         loadScreen(prevQuestionID);
+
+        if (questionHasPopUp(prevQuestionID)) {
+            const popUp = document.getElementById(prevQuestionID + "_pop_up");
+            popUp.classList.remove("hidden");
+
+            // blur the background
+            document.body.classList.add("background-blur");
+        
+        }
+        
     }
+    
+    
 }
 
 /**
@@ -310,11 +335,21 @@ function previousQuestion() {
 function updateProgressBar() {
     const activeQuestionIndex = Number(activeQuestionID.replace("q", ""));
 
-    const progress = activeQuestionIndex / numOfQuestions;
+    if(activeQuestionIndex == 0){
+        const progress = 1 / numOfQuestions;
+        $('#progress_bar_inside').animate({
+            width: Math.max(progress, 0) * 100 + "%"
+        }, 200);
+    }
 
+    else{
+        const progress = (activeQuestionIndex + 1) / numOfQuestions;
+        
     $('#progress_bar_inside').animate({
         width: Math.max(progress, 0) * 100 + "%"
     }, 200);
+    }   
+
 }
 
 /**
@@ -489,4 +524,25 @@ function updateTextBoxHeight(id) {
     const lines = Math.ceil(element.maxLength / lettersPerLine);
 
     element.style.height = lines * 30 + "px"; // 50 is the line height with the current font
+}
+
+// Popup-HTML hinzufügen
+window.addEventListener('beforeunload', function (e) {
+    e.preventDefault();
+    showExitPopup();
+});
+
+
+function showExitPopup() {
+    const exitPopup = document.getElementById('exitPopup');
+    exitPopup.classList.remove('hidden');
+
+    document.getElementById('stayButton').onclick = function() {
+        exitPopup.classList.add('hidden'); 
+    };
+
+    document.getElementById('leaveButton').onclick = function() {
+        window.removeEventListener('beforeunload', showExitPopup); 
+        window.location.href = window.location.href; 
+    };
 }

@@ -377,7 +377,23 @@ a {
     top: 29%;
 
     max-width: 40vw;
+
+    z-index: 3;
 }
+
+.pop-up-intro {
+    position: absolute;
+
+
+    left: 50%; 
+    top: 35%; 
+    transform: translate(-50%, -50%);
+
+    max-width: 300vw;
+
+    z-index: 3;
+}
+
 
 .pop-up-container {
     background-color: var(--col-q-bg);
@@ -722,7 +738,23 @@ a {
 
     transition: var(--transition-time);
 }
+
+
 .cross-icon:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.cross-icon-popup {
+    width: 25px;
+    
+    position: absolute;
+    bottom: 15px;
+    right: 20px
+
+}
+
+.cross-icon-popup:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
