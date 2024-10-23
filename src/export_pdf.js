@@ -19,6 +19,7 @@ const pdfAnswerFormat = {
         "x": 58.9,
         "y": 620,
         "page": 0,
+        "isMulti": true,
     },
 
 

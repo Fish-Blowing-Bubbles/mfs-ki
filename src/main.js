@@ -153,6 +153,11 @@ function selectAnswer(element, type='default') {
 function updateTextBox(element, type='default') {
     const questionID = element.id.split("_")[0];
 
+        // Update the character count
+        const charCountElement = document.getElementById(`${questionID}_charCount`);
+        const currentLength = element.value.length;
+        charCountElement.textContent = `${currentLength}/500`;
+
     if (type == 'default') {
         questionAnswers[questionID] = element.value.replace("<script>", "").replace("</script>", "");
     } else if (type == 'mixed') {
@@ -252,16 +257,34 @@ function loadScreen(screenID, storeScreen = true) {
 
 function start() {
     const introPopup = document.getElementById("introPopup");
+    const startContainer = document.getElementById("start");
+    const footerContainer = document.getElementById("footer");
     introPopup.classList.remove("hidden");
+    startContainer.classList.add("background-blur");
+    footerContainer.classList.add("background-blur");
    
 
 }
 
 function closePopup() {
     const introPopup = document.getElementById("introPopup");
+    const footerContainer = document.getElementById("footer");
+    const startContainer = document.getElementById("start");
     introPopup.classList.add("hidden");
+    footerContainer.classList.remove("background-blur");
+    startContainer.classList.remove("background-blur");
     saveAnswers();
     loadScreen("q0");
+}
+
+function exitIntroPopup() {
+    const introPopup = document.getElementById("introPopup");
+    const startContainer = document.getElementById("start");
+    const footerContainer = document.getElementById("footer");
+    introPopup.classList.add("hidden");
+    startContainer.classList.remove("background-blur");
+    footerContainer.classList.remove("background-blur");
+
 }
 
 
@@ -391,8 +414,25 @@ function impressum() {
 }
 
 function exitImpressum() {
-    loadScreen(activeQuestionID);
+
+  
+    if(!activeQuestionID) {
+
+        const impressumContent = document.getElementById("impressum");
+        impressumContent.classList.add("hidden");
+    
+        const sourcesContent = document.getElementById("sources");
+        sourcesContent.classList.add("hidden");
+
+        loadScreen("start");
+    }
+    else{
+        loadScreen(activeQuestionID);
+    }
+  
 }
+
+
 
 function sources() {
     loadScreen("sources", false);
@@ -470,6 +510,13 @@ function restartQuestionnaire(clearSession=true) {
     let i = 0;
     while(document.getElementById("q" + i)) {
         const questionElement = document.getElementById("q" + i);
+
+
+              // Reset character count for text fields
+              const charCountElement = document.getElementById(`q${i}_charCount`);
+              if (charCountElement) {
+                  charCountElement.textContent = "0/500"; // Reset character count
+              }
 
         // check if the question has a freeform answer or regular options
         if (isMixedQuestion(questionElement)) {

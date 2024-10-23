@@ -270,6 +270,7 @@ a {
     display: flex;
     justify-content: center;
 
+    position: relative; 
     margin-bottom: var(--q-marg-vertical);
 }
 
@@ -296,6 +297,15 @@ a {
 
     cursor: text !important;
 }
+
+.char-count {
+    position: absolute; 
+    bottom: 10px; 
+    right: 10px; 
+    font-size: 0.85em;
+    color: var(--col-dark); 
+}
+
 
 .likard-scale-container {
     display: flex;
@@ -386,10 +396,12 @@ a {
 
 
     left: 50%; 
-    top: 35%; 
+    top: 54%; 
     transform: translate(-50%, -50%);
 
-    max-width: 300vw;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
 
     z-index: 3;
 }
@@ -409,13 +421,16 @@ a {
     border-radius: var(--q-border-radius);
 
     box-shadow: 0px 0px 20px var(--col-dark-half-opacity);
+
 }
+
 
 .background-blur > *:not(#pop_ups) {
     filter: blur(4px) brightness(0.75);
 
     pointer-events: none;
 }
+
 
 
 .small-heading {
@@ -508,13 +523,30 @@ a {
 .footer-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-between;
+    justify-content:center;
     align-items: center;
     width: 100%;
 }
 
-.footer-logo {
+/* Stack elements on smaller screens */
+@media (max-width: 400px) { 
 
+    .footer-buttons {
+        flex-direction: column; 
+   
+    }
+
+}
+
+
+.footer-logo {
+    margin: 30px;
+}
+
+.footer-buttons {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
 }
 
 .company-image {
@@ -759,6 +791,20 @@ a {
     transform: scale(1.1);
 }
 
+.cross-icon-intropopup {
+    margin-top: 20px;
+    width: 25px;
+
+    position: absolute;
+    right: 20px
+
+}
+
+.cross-icon-intropopup:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 .sources-entry {
     display: flex;
     flex-direction: row;
@@ -783,6 +829,7 @@ a {
         width: 85%;
     }
 }
+
 
 @media only screen and (max-width: 830px) {
     .large-button {
@@ -866,6 +913,33 @@ a {
 
         left: 15%;
         top: 25%;
+    }
+}
+
+@media only screen and (max-width: 965px) and (min-width: 830px) {
+    .footer-container {
+        max-width: 500px;
+    }
+
+    #footer_1 {
+        order: 3; /* Logo 1 */
+    }
+    #footer_2 {
+        order: 0; /* Impressum button */
+    }
+    #footer_3 {
+        order: 1; /* Quellen button */
+    }
+    #footer_4 {
+        order: 2; /* Datenschutz button */
+    }
+    #footer_5 {
+        order: 4; /* Logo 2 */
+    }
+
+    .footer-breakpoint-fix {
+        display: flex;
+        justify-content: center;
     }
 }
 
